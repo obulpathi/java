@@ -1,2 +1,2 @@
-# java
-Java
+# Java
+Java Programming Language
