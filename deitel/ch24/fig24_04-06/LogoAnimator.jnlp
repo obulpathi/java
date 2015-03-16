@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp codebase="file:." href="LogoAnimator.jnlp">
+
+   <information>
+      <title>LogoAnimator</title>
+      <vendor>Deitel</vendor>
+      <offline-allowed/>
+   </information>
+
+   <resources>
+      <java version="1.6+"/>
+      <jar href="LogoAnimator.jar" main="true"/>
+      <jar href="jnlp.jar"/>
+   </resources>
+
+   <application-desc 
+      name="LogoAnimator" 
+      main-class="LogoAnimator">
+   </application-desc>
+</jnlp>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp codebase="file:." href="LoadImageAndScale.jnlp">
+
+   <information>
+      <title>LoadImageAndScale Applet</title>
+      <vendor>Deitel</vendor>
+      <offline-allowed/>
+   </information>
+
+   <resources>
+      <java version="1.6+"/>
+      <jar href="LoadImageAndScale.jar" main="true"/>
+      <jar href="jnlp.jar"/>
+   </resources>
+
+   <applet-desc 
+      name="LoadImageAndScale" 
+      main-class="LoadImageAndScale" 
+      width="400" 
+      height="300">
+   </applet-desc>
+</jnlp>

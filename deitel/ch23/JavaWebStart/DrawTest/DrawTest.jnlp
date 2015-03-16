@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp 
+   codebase="file:." 
+   href="DrawTest.jnlp">
+
+   <information>
+      <title>DrawTest Applet</title>
+      <vendor>Oracle Corporation</vendor>
+      <shortcut>
+         <desktop/>
+      </shortcut>
+      <offline-allowed/>
+   </information>
+
+   <resources>
+      <java version="1.6+"/>
+      <jar href="DrawTest.jar" main="true"/>
+   </resources>
+
+   <applet-desc 
+      name="DrawTest" 
+      main-class="DrawTest" 
+      width="400" 
+      height="400">
+   </applet-desc>
+</jnlp>
