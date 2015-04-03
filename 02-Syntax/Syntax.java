@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+enum Day {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
+
 public class Syntax {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +57,9 @@ public class Syntax {
             default:
                 System.out.println("Outside range");
         }
-
         System.out.println("");
+
+        Day day = Day.Monday;
+        System.out.println(day);
     }
 }
