@@ -1,3 +1,3 @@
 all:
 	javac AccountTest.java
-	java AccountTest
+	javac TimeTest.java
