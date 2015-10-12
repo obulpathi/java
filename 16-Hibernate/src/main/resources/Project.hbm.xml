@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.entity">
+    <class name="IdCard" table="T_ID_CARD">
+        <id name="id" column="ID">
+            <generator class="sequence"/>
+        </id>
+        <property name="idNumber" column="ID_NUMBER"/>
+        <property name="issueDate" column="ISSUE_DATE"/>
+        <property name="valid" column="VALID" type="MyBooleanType"/>
+    </class>
+    <class name="Phone" table="T_PHONE">
+        <id name="id" column="ID">
+            <generator class="sequence"/>
+        </id>
+        <property name="number" column="NUMBER"/>
+        <many-to-one name="person" column="ID_PERSON" unique="false" cascade="all"/>
+    </class>
+    <class name="Project" table="T_PROJECT">
+        <id name="id" column="ID">
+            <generator class="sequence"/>
+        </id>
+        <property name="title" column="TITLE"/>
+        <set name="geeks" table="T_GEEKS_PROJECTS">
+            <key column="ID_PROJECT"/>
+            <many-to-many column="ID_GEEK" class="Geek"/>
+        </set>
+        <component name="period">
+            <property name="startDate" column="START_DATE"/>
+            <property name="endDate" column="END_DATE"/>
+        </component>
+        <property name="created" column="CREATED" type="timestamp"/>
+        <property name="lastUpdate" column="LAST_UPDATE" type="timestamp"/>
+    </class>
+    <class name="Person" table="T_PERSON">
+        <id name="id" column="ID">
+            <generator class="sequence"/>
+        </id>
+        <discriminator column="PERSON_TYPE" type="string"/>
+        <property name="firstName" column="FIRST_NAME"/>
+        <property name="lastName" column="LAST_NAME"/>
+        <property name="created" column="CREATED" type="timestamp"/>
+        <property name="lastUpdate" column="LAST_UPDATE" type="timestamp"/>
+        <many-to-one name="idCard" column="ID_ID_CARD" unique="true" cascade="all"/>
+<!--         <joined-subclass name="Geek" table="T_GEEK">
+             <key column="ID_PERSON"/>
+             <property name="favouriteProgrammingLanguage" column="FAV_PROG_LANG"/>
+         </joined-subclass>-->
+        <subclass name="Geek" extends="Person">
+            <property name="favouriteProgrammingLanguage" column="FAV_PROG_LANG"/>
+            <set name="projects" inverse="true" table="T_GEEKS_PROJECTS">
+                <key column="ID_GEEK"/>
+                <many-to-many column="ID_PROJECT" class="Project"/>
+            </set>
+        </subclass>
+<!--        <union-subclass name="Geek" table="T_GEEK">
+            <property name="favouriteProgrammingLanguage" column="FAV_PROG_LANG"/>
+        </union-subclass>-->
+    </class>
+</hibernate-mapping>
